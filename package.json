@@ -2,6 +2,9 @@
   "name": "react-base",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "18"
+  },
   "dependencies": {
     "@fontsource-variable/quicksand": "^5.1.0",
     "@testing-library/jest-dom": "^5.17.0",
