@@ -61,7 +61,7 @@ export default function Login() {
 
     if (newPassword.length < 6 || newPassword.length > 50) {
       formErrors = true;
-      toast.error('Senha deve ter entre 3 e 50 caracteres');
+      toast.error('Senha deve ter entre 6 e 50 caracteres');
     }
 
     if (newPassword !== newPasswordEqual) {
