@@ -1,6 +1,8 @@
+import { Link } from 'react-router-dom';
+
 import styled from 'styled-components';
 import * as colors from '../../config/colors';
-import { Link } from 'react-router-dom';
+import { media } from '../../config/response';
 
 export const Panel = styled.div`
   background: ${colors.primaryColor};
@@ -40,10 +42,25 @@ export const DivContatos = styled.div`
     border-radius: 10px;
   }
 
+  ul:last-child {
+    margin-bottom: 10px;
+  }
+
+  @media ${media.tablet} {
+    ul > li:nth-child(1),
+    ul > li:nth-child(3),
+    ul > li:nth-child(4) {
+      display: none;
+    }
+  }
+
   ul.body-contatos li:last-child {
     display: flex;
-
     gap: 8px;
+
+    @media ${media.tablet} {
+      flex-direction: column;
+    }
   }
 
   li {
@@ -57,6 +74,10 @@ export const DivContatos = styled.div`
     border-radius: 6px;
     border: 1px solid #444;
     font-weight: 800;
+
+    @media ${media.tablet} {
+      padding: 10px 0;
+    }
   }
 `;
 
@@ -67,14 +88,27 @@ export const LinkEdit = styled(Link)`
   border-radius: 8px;
   background: ${colors.succesColor};
   font-size: 13.33px;
+
+  @media ${media.tablet} {
+    width: 80%;
+  }
 `;
 
 export const ButtonView = styled.button`
   background-color: ${colors.infoColor};
+  display: none;
+
+  @media ${media.tablet} {
+    display: block;
+    width: 80%;
+  }
 `;
 export const ButtonEdit = styled.button`
   background-color: ${colors.succesColor};
 `;
 export const ButtonDelete = styled.button`
   background-color: ${colors.errorColor};
+  @media ${media.tablet} {
+    width: 80%;
+  }
 `;

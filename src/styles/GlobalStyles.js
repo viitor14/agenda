@@ -2,6 +2,7 @@ import { styled, createGlobalStyle } from 'styled-components';
 import '@fontsource-variable/quicksand';
 
 import * as colors from '../config/colors';
+import { media } from '../config/response';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default createGlobalStyle`
@@ -103,5 +104,9 @@ export const Container = styled.div`
     border-radius: 10px; /* Maior que o do conteúdo para ficar "fora" */
     background: linear-gradient(to top, #834ee9, rgba(251, 0, 255, 0.14)); /* Gradiente da borda */
     z-index: -1; /* Coloca o ::before atrás do Container */
+  }
+
+  @media ${media.tablet} {
+    margin: 30px;
   }
 `;

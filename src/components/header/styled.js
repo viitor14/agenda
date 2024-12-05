@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import * as colors from '../../config/colors';
+import { media } from '../../config/response';
+
 export const Nav = styled.nav`
   background-color: ${colors.primaryColor};
   padding: 20px;
@@ -15,10 +17,18 @@ export const AddNewContato = styled.button`
   border-radius: 6px;
   padding: 14px;
   margin-left: 80px;
+
+  @media ${media.tablet} {
+    margin-left: 0;
+  }
 `;
 export const ButtonLogout = styled.button`
   background: #41019b;
   border-radius: 6px;
   padding: 14px;
   margin-right: 80px;
+
+  @media ${media.tablet} {
+    margin-right: 0;
+  }
 `;

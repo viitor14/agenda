@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { media } from '../../config/response';
 
 export const Title = styled.div`
   display: flex;
@@ -8,6 +9,10 @@ export const Title = styled.div`
   background-color: rgba(26, 0, 78, 1);
   border-radius: 8px;
   padding: 20px;
+
+  @media ${media.tablet} {
+    flex-direction: column-reverse;
+  }
 `;
 
 export const Paragrafo = styled.p`
@@ -46,6 +51,10 @@ export const FormLogin = styled.form`
   background: rgba(255, 255, 255, 0);
   box-shadow: 1px 4px 10px 0px #fff;
   height: 380px;
+
+  @media ${media.tablet} {
+    width: 100%;
+  }
 `;
 
 export const DivForm = styled.div`
@@ -67,6 +76,10 @@ export const DivForm = styled.div`
 
     &:focus {
       border: 1px solid #9a0680;
+    }
+
+    @media ${media.tablet} {
+      padding: 0 6px;
     }
   }
   &:nth-of-type(3) {
@@ -93,6 +106,10 @@ export const DivFormLogin = styled.div`
 
     &:focus {
       border: 1px solid #9a0680;
+    }
+
+    @media ${media.tablet} {
+      padding: 0 6px;
     }
   }
 `;

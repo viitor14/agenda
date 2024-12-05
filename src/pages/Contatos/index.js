@@ -9,7 +9,7 @@ import Swal from 'sweetalert2';
 import Header from '../../components/header';
 import Loading from '../../components/loading';
 import { Container } from '../../styles/GlobalStyles';
-import { succesColor } from '../../config/colors';
+import { succesColor, infoColor } from '../../config/colors';
 import { Main, Panel, Paragrafo, DivContatos, ButtonView, LinkEdit, ButtonDelete } from './styled';
 import axios from '../../services/axios';
 import history from '../../services/history';
@@ -84,6 +84,24 @@ export default function Contatos() {
     history.push('/Contato');
   };
 
+  const mostrarDadosUsuario = (usuario) => {
+    Swal.fire({
+      title: 'Detalhes do Usuário',
+      html: `
+        <div style="text-align: left; font-size: 16px;">
+          <p><strong>Nome:</strong> ${usuario.nome}</p>
+          <p><strong>Sobrenome:</strong> ${usuario.sobrenome}</p>
+          <p><strong>Email:</strong> ${usuario.email}</p>
+          <p><strong>Telefone:</strong> ${usuario.telefone}</p>
+        </div>
+      `,
+      icon: 'info', // Ícone informativo
+      confirmButtonText: 'Fechar',
+      confirmButtonColor: succesColor,
+      background: '#f9f9f9'
+    });
+  };
+
   return (
     <div>
       <Loading isLoading={isLoading} />
@@ -113,7 +131,12 @@ export default function Contatos() {
                     <li>{contato.email}</li>
                     <li>{contato.telefone}</li>
                     <li>
+                      <ButtonView onClick={() => mostrarDadosUsuario(contato)}>
+                        Visualizar
+                      </ButtonView>
+
                       <LinkEdit to={`/Contato/${contato.id}/editar`}>Editar</LinkEdit>
+
                       <ButtonDelete
                         onClick={(e) => deleteContato(e, contato.id, index)}
                         type="button">
