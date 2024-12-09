@@ -81,8 +81,6 @@ export default createGlobalStyle`
   .swal2-cancel.swal2-styled{
     background: ${colors.infoColor}
   }
-
-
 `;
 
 export const Container = styled.div`
@@ -107,6 +105,9 @@ export const Container = styled.div`
   }
 
   @media ${media.tablet} {
-    margin: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
   }
 `;

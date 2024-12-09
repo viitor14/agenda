@@ -34,7 +34,7 @@ export default function Header({ buttonText, onButtonClick, styleBg }) {
 }
 
 Header.propTypes = {
-  styleBg: PropTypes.object, // Garante que buttonText é uma string
+  styleBg: PropTypes.string, // Garante que buttonText é uma string
   buttonText: PropTypes.string, // Garante que buttonText é uma string
   onButtonClick: PropTypes.func // Garante que onButtonClick é uma função e é obrigatório
 };

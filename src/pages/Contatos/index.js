@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { get } from 'lodash';
-import { isEmail } from 'validator';
 import { toast } from 'react-toastify';
-import { Link } from 'react-router-dom/';
 import Swal from 'sweetalert2';
 
 import Header from '../../components/header';
 import Loading from '../../components/loading';
 import { Container } from '../../styles/GlobalStyles';
-import { succesColor, infoColor } from '../../config/colors';
+import { succesColor } from '../../config/colors';
 import { Main, Panel, Paragrafo, DivContatos, ButtonView, LinkEdit, ButtonDelete } from './styled';
 import axios from '../../services/axios';
 import history from '../../services/history';
@@ -19,12 +17,15 @@ export default function Contatos() {
   const dispatch = useDispatch();
   const [alunos, setAlunos] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [nomeUser, setNomeUser] = useState('');
 
   useEffect(() => {
     async function getData() {
       try {
         setIsLoading(true);
         const response = await axios.get('/alunos');
+        const nomeUser = await axios.get('/users/');
+        setNomeUser(get(nomeUser, 'data.nome', 'UserDesconhecido'));
         setAlunos(response.data);
         setIsLoading(false);
       } catch (e) {
@@ -113,7 +114,10 @@ export default function Contatos() {
       <Container>
         <Panel>
           <Main>
-            <Paragrafo>Lista de contato {`#${alunos.length}`}</Paragrafo>
+            <Paragrafo>
+              <p>Lista de contato {`#${alunos.length}`}</p>
+              <p>Olá {`${nomeUser}`}</p>
+            </Paragrafo>
             <DivContatos>
               <ul>
                 <li>Nº</li>

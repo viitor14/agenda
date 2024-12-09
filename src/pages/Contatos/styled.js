@@ -18,16 +18,25 @@ export const Main = styled.main`
   border-radius: 8px;
   padding: 0px;
   min-width: 80vw;
+
+  @media ${media.tablet} {
+    min-width: 90vw;
+  }
 `;
 
-export const Paragrafo = styled.p`
-  text-align: start;
-  padding: 10px 0 10px 40px;
+export const Paragrafo = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 40px;
   font-weight: 700;
   background-color: rgba(21, 0, 80, 0.5);
   width: 100%;
   border-radius: 10px;
   margin-bottom: 10px;
+
+  @media ${media.tablet} {
+    padding: 10px 4px;
+  }
 `;
 
 export const DivContatos = styled.div`
